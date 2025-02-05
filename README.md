@@ -1,4 +1,4 @@
-# Parkinson’s Disease Place of Death Analysis (PDD_systreview)
+# Parkinson’s Disease Place of Death Analysis (POD_systreview)
 
 This repository contains the code and documentation for teh systematic review and meta-analysis investigating factors associated with the place of death in individuals with Parkinson’s disease.
 
