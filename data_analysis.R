@@ -119,9 +119,9 @@ for (var in sheets_to_analyse) {
   # -------------------------------
   
   output_file <- file.path(wdir, "results",
-                           sprintf("fig%.2d.forest_plot.OR_%s.v1.0.png",
+                           sprintf("fig%.2d.forest_plot.OR_%s.v1.1.png",
                                    which(sheets_to_analyse == var), var))
-  png(filename = output_file, width = 1800, height = 1250, units = "px", res = 96)
+  png(filename = output_file, width = 2000, height = 1250, units = "px", res = 96)
   
   forest1 <- forest(
     res_metaMOD, 
@@ -131,8 +131,9 @@ for (var in sheets_to_analyse) {
     showweights = TRUE,
     addfit    = TRUE,
     addpred   = TRUE,
-    order   = ltcbeds,
+    order     = ltcbeds,
     xlab      = "Odds ratio [OR]",
+    header    = FALSE,
     slab      = NA,
     mlab      = mlabfun("RE Model for all Studies", res_metaMOD),
     ilab      = cbind(
@@ -153,20 +154,20 @@ for (var in sheets_to_analyse) {
     shade     = TRUE
   )
   
-  segments(-7, forest1$ylim[2] - 0.5, -5.5, forest1$ylim[2] - 0.5)
-  segments(-5, forest1$ylim[2] - 0.5, -3.5, forest1$ylim[2] - 0.5)
+  segments(-7, forest1$ylim[2] - 1, -5.5, forest1$ylim[2] - 1)
+  segments(-5, forest1$ylim[2] - 1, -3.5, forest1$ylim[2] - 1)
   
   # Additional plot text for groups and headers
   text(
     c(-6.25, -4.25), 
-    res_metaMOD$k + 3, 
+    res_metaMOD$k + 2.5, 
     font  = 2, 
     cex   = cex_plot, 
     c(list_sheets$groups[1], list_sheets$groups[2])
   )
   text(
-    c(-10.5, -7.75, -6.75, -5.75, -4.75, -3.75, -2.75, 4.5),
-    res_metaMOD$k + 2, 
+    c(-10.55, -7.75, -6.75, -5.75, -4.75, -3.75, -2.75, 4.5),
+    res_metaMOD$k + 1.5, 
     cex = cex_plot,
     c("Author(s)", "year", "hosp.", "other", "hosp.", "other",
       expression("n"[tot]), "Weights and OR [95%-CI]")
